@@ -1,3 +1,92 @@
 <html>
 Hello, world!
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change the Vibe</title>
+    <style>
+        /* Base styles and centering */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.6s ease;
+            background-color: #2c3e50;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Large Vibe Text */
+        #vibe-text {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        /* Modern Button Styling */
+        .vibe-button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .vibe-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+
+        .vibe-button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="vibe-text">Ready?</h1>
+    <button class="vibe-button" onclick="changeVibe()">Change the Vibe</button>
+
+    <script>
+        const vibes = [
+            { text: 'Chill Mode', color: '#8e44ad' },
+            { text: 'Party Time', color: '#e67e22' },
+            { text: 'Focus On', color: '#27ae60' },
+            { text: 'Midnight City', color: '#2c3e50' },
+            { text: 'Electric Sky', color: '#00d2ff' },
+            { text: 'Sunset Glow', color: '#ff5f6d' },
+            { text: 'Deep Ocean', color: '#12c2e9' },
+            { text: 'Cyberpunk', color: '#ff00ff' }
+        ];
+
+        function changeVibe() {
+            const vibeText = document.getElementById('vibe-text');
+            
+            // Pick a random vibe from the array
+            const randomVibe = vibes[Math.floor(Math.random() * vibes.length)];
+            
+            // Update UI
+            document.body.style.backgroundColor = randomVibe.color;
+            vibeText.innerText = randomVibe.text;
+        }
+    </script>
+</body>
+</html>
